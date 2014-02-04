@@ -2,7 +2,7 @@
 Software needed:
 
 - scala 2.11 ( http://www.scala-lang.org/ )
-- sbt 0.12.1 ( http://github.com/harrah/xsbt/ )
+- sbt 0.13.1 ( http://github.com/harrah/xsbt/ )
 
 
 To build the jarlister:
