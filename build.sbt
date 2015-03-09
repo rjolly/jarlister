@@ -2,7 +2,7 @@ name := "jarlister"
 
 version := "1.0"
 
-scalaVersion := "2.11.0-M8"
+scalaVersion := "2.11.6"
 
 scalacOptions ++= Seq("-language:implicitConversions")
 
