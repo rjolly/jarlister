@@ -1,0 +1,4 @@
+<antlib>
+    <taskdef name="jarlister"
+             classname="scala.tools.ant.JarLister"/>
+</antlib>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="jarlister" default="run">
+
+  <property environment="env"/>
+  <property name="scala.home" value="${env.SCALA_HOME}"/>
+
+  <property name="scala.version" value="2.11"/>
+  <property name="version" value="1.0-SNAPSHOT"/>
+  <property name="dist.dir" value="${basedir}/target/scala-${scala.version}"/>
+  <property name="dist.path" value="${dist.dir}/jarlister_${scala.version}-${version}.jar"/>
+
+  <target name="run">
+    <taskdef name="jarlister" classname="scala.tools.ant.JarLister" classpath="${scala.home}/lib/scala-library.jar:${dist.path}"/>
+    <jarlister file="${dist.path}"/>
+  </target>
+
+</project>
