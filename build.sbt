@@ -2,7 +2,7 @@ name := "jarlister"
 
 organization := "com.github.rjolly"
 
-description := "A tools that lists a jars classes into its manifest"
+description := "A tool that lists a jar's classes into its manifest"
 
 licenses := Seq( "GPL" -> url( "http://www.gnu.org/licenses/gpl.txt" ))
 
@@ -30,7 +30,7 @@ pomExtra :=
     </developer>
   </developers>
 
-version := "1.0"
+version := "1.1"
 
 scalaVersion := "2.11.6"
 

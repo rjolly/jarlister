@@ -6,7 +6,7 @@
   <property name="scala.home" value="${env.SCALA_HOME}"/>
 
   <property name="scala.version" value="2.11"/>
-  <property name="version" value="1.0-SNAPSHOT"/>
+  <property name="version" value="1.1"/>
   <property name="dist.dir" value="${basedir}/target/scala-${scala.version}"/>
   <property name="dist.path" value="${dist.dir}/jarlister_${scala.version}-${version}.jar"/>
 

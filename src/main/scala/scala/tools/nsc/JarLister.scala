@@ -19,7 +19,7 @@
 
 package scala.tools.nsc
 
-import java.io.{File, FileOutputStream, IOException}
+import java.io.{File, FileInputStream, FileOutputStream, InputStream, OutputStream, IOException}
 import java.util.jar.{JarFile, JarEntry, JarOutputStream, Attributes}
 import scala.collection.convert.WrapAsScala
 import WrapAsScala.{enumerationAsScalaIterator, mapAsScalaMap}
@@ -70,13 +70,12 @@ Options:
     jarFile.close
 
     if (output == "") {
-      if (!listedFile.renameTo(file)) {
-        val orig = new File(name + ".orig");
-        if (file.renameTo(orig)) {
-          if (listedFile.renameTo(file)) orig.delete
-          else return false
-        } else return false
-      }
+      val is = new FileInputStream(listedFile)
+      val os = new FileOutputStream(file)
+      pipe(is, os)
+      os.close
+      is.close
+      listedFile.delete
     }
     return true
   }
@@ -91,6 +90,13 @@ Options:
       if (n == -1) throw new IOException("read error")
       os.write(buffer, 0, n)
       left -= n
+    }
+  }
+  def pipe(is: InputStream, os: OutputStream) {
+    var n = is.read(buffer)
+    while(n > -1) {
+      os.write(buffer, 0, n)
+      n = is.read(buffer)
     }
   }
 }
